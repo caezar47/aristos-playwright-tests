@@ -2,7 +2,7 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     inputs:
-      nameTests:
+      tests:
         description: 'Название теста'
         required: true
         default: 'test'
@@ -10,6 +10,15 @@ on:
         options:
           - test
           - test masterclub-category-empty.spec.ts
+      project:
+        description: 'Браузер'
+        required: true
+        default: 'chrome_desktop'
+        type: choice
+        options:
+          - chrome_desktop
+          - firefox_desktop
+          - safari_desktop
 jobs:
   test:
     timeout-minutes: 60
@@ -24,7 +33,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright ${{ inputs.nameTests }}
+        run: npx playwright ${{ inputs.tests }} --project=${{ inputs.project }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
