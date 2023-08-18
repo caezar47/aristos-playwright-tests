@@ -11,16 +11,17 @@ test('Masterclub :: find category empty', async ({ page }) => {
   let categoryEmpty = 0;
   let categoryCheck = 0;
 
-  console.log('Количество проверяемых категорий: ' + allLinks);
+
+  console.log(`Количество проверяемых категорий: ${allLinks}`);
   for (let link of links) {
     if (link != '') {
       await page.goto(link);
       try {
         await expect(page.locator(".category-products__item")).not.toHaveCount(0);
-        console.log('✅ Товары есть в категории: ' + link);
+        console.log(`✅ Товары есть в категории: ${link}`);
         category++;
       } catch (error) {
-        console.log('❌ Нет товаров в категории: ' + link)
+        console.log(`❌ Нет товаров в категории: ${link}`);
         categoryEmpty++;
       }
     }
@@ -36,8 +37,8 @@ test('Masterclub :: find category empty', async ({ page }) => {
   console.log('===================================================');
   console.log('Отчет');
   console.log('===================================================');
-  console.log('Проверку прошли: ' + categoryCheck + ' / ' + allLinks);
+  console.log(`Проверку прошли: ${categoryCheck} / ${allLinks}`);
 
-  console.log('✅ : ' + category + '('+categoryPer+'%)');
-  console.log('❌ : ' + categoryEmpty + '('+categoryEmptyPer+'%)');
+  console.log(`✅ : ${category} (${categoryPer}%)`);
+  console.log(`❌ : ${categoryEmpty} (${categoryEmptyPer}%)`);
 });
