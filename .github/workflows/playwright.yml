@@ -2,12 +2,14 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     inputs:
-      tests:
+      nameTests:
         description: 'Название теста'
           required: true
+          default: 'test'
           type: choice
           options:
-            - masterclub-category-empty
+            - test
+            - test masterclub-category-empty.spec.ts
 jobs:
   test:
     timeout-minutes: 60
@@ -22,7 +24,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test ${{ inputs.tests }}.spec.ts
+      run: npx playwright ${{ inputs.nameTests }}
     - uses: actions/upload-artifact@v3
       if: always()
       with:
