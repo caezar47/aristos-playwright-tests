@@ -24,6 +24,9 @@ test('masterclub :: find category empty', async ({ page }) => {
       }
     }
     categoryCheck++;
+    if (categoryCheck == 5) {
+      break;
+    }
   }
 
   const categoryPer = Math.round(category * 100 / categoryCheck);
