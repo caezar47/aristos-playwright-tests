@@ -1,9 +1,13 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      tests:
+        description: 'Название теста'
+          required: true
+          type: choice
+          options:
+            - masterclub-category-empty
 jobs:
   test:
     timeout-minutes: 60
@@ -18,7 +22,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test ${{ inputs.tests }}.spec.ts
     - uses: actions/upload-artifact@v3
       if: always()
       with:
