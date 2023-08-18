@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-test.setTimeout(5000000);
+test.setTimeout(3600000);
 test('masterclub :: find category empty', async ({ page }) => {
   await page.goto('https://masterclub.store/');
 
