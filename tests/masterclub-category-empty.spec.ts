@@ -1,16 +1,17 @@
 import { test, expect } from '@playwright/test';
 test.setTimeout(3600000);
-test('masterclub :: find category empty', async ({ page }) => {
+test('Masterclub :: find category empty', async ({ page }) => {
   await page.goto('https://masterclub.store/');
 
+  // @ts-ignore
   const links = await page.$$eval('.navigation__link', links => links.map(link => link.href));
-  const alllinks = links.length;
+  const allLinks = links.length;
 
   let category = 0;
   let categoryEmpty = 0;
   let categoryCheck = 0;
 
-  console.log('Количество проверяемых категорий: ' + alllinks);
+  console.log('Количество проверяемых категорий: ' + allLinks);
   for (let link of links) {
     if (link != '') {
       await page.goto(link);
@@ -35,7 +36,7 @@ test('masterclub :: find category empty', async ({ page }) => {
   console.log('===================================================');
   console.log('Отчет');
   console.log('===================================================');
-  console.log('Проверку прошли: ' + categoryCheck + ' / ' + alllinks);
+  console.log('Проверку прошли: ' + categoryCheck + ' / ' + allLinks);
 
   console.log('✅ : ' + category + '('+categoryPer+'%)');
   console.log('❌ : ' + categoryEmpty + '('+categoryEmptyPer+'%)');
