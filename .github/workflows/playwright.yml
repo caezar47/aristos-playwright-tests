@@ -10,6 +10,7 @@ on:
         options:
           - test
           - test masterclub-category-empty.spec.ts
+          - test masterclub-sg-stat-category.spec.ts
       project:
         description: 'Браузер'
         required: true
