@@ -20,6 +20,10 @@ on:
           - chrome_desktop
           - firefox_desktop
           - safari_desktop
+      category:
+        description: 'Ссылка на категорию'
+        required: false
+        type: string
 jobs:
   test:
     timeout-minutes: 60
@@ -34,7 +38,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright ${{ inputs.tests }} --project=${{ inputs.project }}
+        run: CATEGORY=${{ inputs.category }} npx playwright ${{ inputs.tests }} --project=${{ inputs.project }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
