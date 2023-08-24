@@ -7,7 +7,7 @@ test('Masterclub :: find sg-stat category', async ({ page }) => {
 
     // @ts-ignore
     //const urls = await page.$$eval('.navigation__list .navigation__link', links => links.map(link => link.href));
-    let allUrls = urls.length;
+    //let allUrls = urls.length;
 
     let pageStatic = 0;
     let pageStaticEmpty = 0;
@@ -49,10 +49,10 @@ test('Masterclub :: find sg-stat category', async ({ page }) => {
           break;
         }
       }
-      categoryCheck++;
-      if (categoryCheck == 2) {
-        break;
-      }
+      //categoryCheck++;
+      //if (categoryCheck == 2) {
+        //break;
+      //}
     //}
 
     const pageStaticPer = pageStatic * 100 / pageCheck;
@@ -61,7 +61,7 @@ test('Masterclub :: find sg-stat category', async ({ page }) => {
     console.log('===================================================');
     console.log('Отчет');
     console.log('===================================================');
-    console.log(`Проверку прошли: ${pageCheck} / ${allUrls}`);
+    //console.log(`Проверку прошли: ${pageCheck} / ${allUrls}`);
 
     console.log(`✅ : ${pageStatic} (${pageStaticPer}%)`);
     console.log(`❌ : ${pageStaticEmpty} (${pageStaticEmptyPer}%)`);
