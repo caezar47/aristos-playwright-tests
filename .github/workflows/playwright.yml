@@ -11,6 +11,7 @@ on:
           - test
           - test masterclub-category-empty.spec.ts
           - test masterclub-sg-stat-category.spec.ts
+          - test masterclub-sg-stat-card.spec.ts
       project:
         description: 'Браузер'
         required: true

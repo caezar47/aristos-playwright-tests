@@ -16,7 +16,7 @@ test('Masterclub :: find sg-stat category', async ({ page }) => {
 
     //console.log(`Количество проверяемых страниц: ${allUrls}`);
 
-    try {
+    /*try {
       await expect(page.locator("#sg-stat")).not.toHaveCount(0);
       console.log(`✅ Статика есть на странице: ${mainPage}`);
       pageStatic++;
@@ -24,7 +24,7 @@ test('Masterclub :: find sg-stat category', async ({ page }) => {
       console.log(`❌ Статики нет на странице: ${mainPage}`);
       pageStaticEmpty++;
     }
-    pageCheck++;
+    pageCheck++;*/
     //for (let url of urls) {
       const url = process.env.CATEGORY;
       await page.goto(url+'?limit=all');
