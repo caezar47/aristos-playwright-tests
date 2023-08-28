@@ -5,12 +5,12 @@ on:
       tests:
         description: 'Название теста'
         required: true
-        default: 'Masterclub :: Проверка на пустые категории'
+        default: 'Masterclub Проверка на пустые категории'
         type: choice
         options:
-          - Masterclub :: Проверка на пустые категории
-          - Masterclub :: Проверка статики в категория
-          - Masterclub :: Проверка статики у товаров в категории
+          - Masterclub Проверка на пустые категории
+          - Masterclub Проверка статики в категория
+          - Masterclub Проверка статики у товаров в категории
       project:
         description: 'Браузер'
         required: true

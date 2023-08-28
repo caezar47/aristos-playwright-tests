@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 test.setTimeout(3600000);
-test('Masterclub :: Проверка на пустые категории', async ({ page }) => {
+test('Masterclub Проверка на пустые категории', async ({ page }) => {
   await page.goto('https://masterclub.store/');
 
   // @ts-ignore
