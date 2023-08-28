@@ -5,13 +5,12 @@ on:
       tests:
         description: 'Название теста'
         required: true
-        default: 'test'
+        default: 'Masterclub :: Проверка на пустые категории'
         type: choice
         options:
-          - test
-          - test masterclub-category-empty.spec.ts
-          - test masterclub-sg-stat-category.spec.ts
-          - test masterclub-sg-stat-card.spec.ts
+          - Masterclub :: Проверка на пустые категории
+          - Masterclub :: Проверка статики в категория
+          - Masterclub :: Проверка статики у товаров в категории
       project:
         description: 'Браузер'
         required: true
@@ -39,7 +38,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: CATEGORY=${{ inputs.category }} npx playwright ${{ inputs.tests }} --project=${{ inputs.project }}
+        run: CATEGORY=${{ inputs.category }} npx playwright test -g "${{ inputs.tests }}" --project=${{ inputs.project }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:

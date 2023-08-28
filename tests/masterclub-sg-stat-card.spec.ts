@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 test.setTimeout(3600000);
-test('Masterclub :: find sg-stat category', async ({ page }) => {
+test('Masterclub :: Проверка статики у товаров в категории', async ({ page }) => {
   const mainPage = process.env.SITE;
   await page.goto('https://masterclub.store/');
   await expect(page.locator("#sg-stat")).not.toHaveCount(0);

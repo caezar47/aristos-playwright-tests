@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 test.setTimeout(3600000);
-test('Masterclub :: find sg-stat category', async ({ page }) => {
+test('Masterclub :: Проверка статики в категория', async ({ page }) => {
   const mainPage = 'https://masterclub.store/';
   await page.goto(mainPage);
 
