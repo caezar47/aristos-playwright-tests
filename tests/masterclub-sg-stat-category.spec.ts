@@ -35,9 +35,6 @@ test('Masterclub Проверка статики в категория', async (
       pageStaticEmpty++;
     }
     pageCheck++;
-    if (pageCheck == 5) {
-      break;
-    }
   }
 
   const pageStaticPer = pageStatic * 100 / pageCheck;
